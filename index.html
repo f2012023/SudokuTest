@@ -6,9 +6,11 @@
 	<title>SUDOKU Game</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://unpkg.com/vue"></script>
 	<script src='assets/sudokuJS.js'></script>
 	<link rel='stylesheet' href='assets/sudokuJS.css' />
 	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -17,37 +19,36 @@
       </div>
     </nav>
 
-	<div class="container">
+	<div class="container" id = "app">
 		<div class="row">
 			<div class="sudoku-wrapper">
 					<h2> Sudoku Test </h2>
 
 
 					<ul class = "difficulty">
-						<li>Easy</li>
-						<li>Medium</li>
-						<li>Hard</li>
-						<li class = "selected">Very Hard</li>
+						<li :class="{ selected: difficulty == 'easy' }" @click = "startGame('easy')">Easy</li>
+						<li :class="{ selected: difficulty == 'medium' }" @click = "startGame('medium')">Medium</li>
+						<li :class="{ selected: difficulty == 'hard' }" @click = "startGame('hard')">Hard</li>
+						<li :class="{ selected: difficulty == 'very hard' }" @click = "startGame('very hard')">Very Hard</li>
 					</ul>
 
-					<div class = "timer">
-						00:00
+					<div class = "timer" @click = "step()">
+						AUTO STEP
 					</div>
 
-				<div  id='sudoku'></div>
+				<div  id='sudoku'>
+					<sudoku @on-finished = "boardFinished"></sudoku>
+				</div>
 
 				<div class = "status">
-					<strong>Status</strong>: <span>Playing...</span>
+					<div class="alert alert-secondary" role="alert">
+  						<strong>Status</strong>: <span v-if = "!finished">Playing...</span> <span v-if = "finished">Finished. {{ result }}</span>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script>
-		var mySudokuJS = $("#sudoku").sudokuJS({
-	    	difficulty: "easy",
-		});
-	</script>
-
+	<script src="assets/game.js"></script>
 </body>
 </html>
