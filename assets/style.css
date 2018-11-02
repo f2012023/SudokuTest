@@ -1,0 +1,51 @@
+.sudoku-wrapper {
+	margin: 0 auto;
+    margin-top: 30px;
+}
+
+.sudoku-wrapper h2 {
+	text-align: center;
+}
+
+.sudoku-wrapper .timer {
+	margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #bbb;
+    width: 100px;
+    border-radius: 2px;
+    padding: 7px 0px;
+}
+
+.sudoku-wrapper .difficulty {
+	list-style: none;
+    display: inline-block;
+}
+
+.sudoku-wrapper .difficulty li {
+	float: left;
+    margin: 10px 5px;
+    background-color: #ddd;
+    padding: 5px 0px;
+    width: 105px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sudoku-wrapper .difficulty li:hover, .sudoku-wrapper .difficulty li.selected {
+	background-color: #888;
+}
+
+#sudoku {
+	margin: 0 auto;
+    width: fit-content;
+}
+
+.sudoku-wrapper .status {
+	width: 284px;
+    margin: 0 auto;
+    margin-top: 30px;
+}

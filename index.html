@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>SUDOKU Game</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src='assets/sudokuJS.js'></script>
+	<link rel='stylesheet' href='assets/sudokuJS.css' />
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">SudokuTest</a>
+      </div>
+    </nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="sudoku-wrapper">
+					<h2> Sudoku Test </h2>
+
+
+					<ul class = "difficulty">
+						<li>Easy</li>
+						<li>Medium</li>
+						<li>Hard</li>
+						<li class = "selected">Very Hard</li>
+					</ul>
+
+					<div class = "timer">
+						00:00
+					</div>
+
+				<div  id='sudoku'></div>
+
+				<div class = "status">
+					<strong>Status</strong>: <span>Playing...</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var mySudokuJS = $("#sudoku").sudokuJS({
+	    	difficulty: "easy",
+		});
+	</script>
+
+</body>
+</html>
